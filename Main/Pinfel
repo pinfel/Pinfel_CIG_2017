@@ -1,1 +1,7 @@
+package main;
+import bwapi.*;
+import bwta.*;
 
+/*
+/ Author by Pinfel <notpinfel@gmail.com>
+*/
