@@ -5,3 +5,36 @@ import bwta.*;
 /*
 / Author by Pinfel <notpinfel@gmail.com>
 */
+
+public class Pinfel extends DefaultBWListener {
+	public static void main(String[] args) {
+		new Pinfel().run();
+	}
+	
+	private Mirror mirror = new Mirror();
+	public static Game game;
+	private Player self;
+	public void run() {
+		mirror.getModule().setEventListener(this);
+		mirror.startGame();
+	}	
+	
+	@Override
+	public void onStart() {
+		game = mirror.getGame();
+		self = game.self();
+		game.setLocalSpeed(15);
+		game.setLatCom(false);
+		game.enableFlag(1);
+		
+		BWTA.readMap();
+		BWTA.analyze();		
+	}
+	
+	
+	@Override
+	public void onFrame() {
+	
+	}	
+}
+
